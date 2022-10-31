@@ -22,7 +22,7 @@ export default [
                 constBindings: true,
                 objectShorthand: true,
                 preset: 'es2015',
-                reservedNamesAsProps: true,
+                reservedNamesAsPops: true,
                 symbols: true
             }
         },

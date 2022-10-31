@@ -22,7 +22,7 @@ function test() {
         depth: 30,
         depthRange: [20, 60],
         innerRadius: 0.6,
-        startAngle: 0,
+        startAngle: 270,
         enableTransition: true,
         enableAutoRotate: true,
         rotateDuration: 1000,
@@ -41,7 +41,7 @@ function test() {
 }
 
 function fakeData() {
-    let i = Mock.Random.integer(8, 16);
+    let i = Mock.Random.integer(10, 20);
     let j = 0;
     let data = Mock.mock({
         [`dataList|${i}`]: [

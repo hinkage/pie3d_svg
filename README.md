@@ -42,3 +42,32 @@ inst.render({
 	}
 });
 ```
+
+## Config
+Look at src/default_config.js.
+
+The default config will be overridden by the object passed to function render.
+Try to change the value of each property to see what will happend to
+understand what the property means.
+
+## Caution
+**startAngle can only be set to 270 degrees**, because of the limitation of SVG.
+SVG is designed for 2D graphic, not for 3D graphic like this.
+
+You can try to set startAngle to 0 degrees, then only provide two items of
+data, click on update button several times, then you can find the problem.
+No matter which order that two parts are placed, the overlapping result is
+wrong.
+
+In 3D graphic, each single pixel's distance to camera must be calculated to
+decide we can see that pixel or not, this is not possible in SVG. This is
+the biggest limitation of this implementation. The perfect implemetation
+can only be done by WebGL, which is the real 3D graphic interface.
+
+There is another library:
+[amcharts variable-height-3d-pie-chart-v4](https://www.amcharts.com/demos-v4/variable-height-3d-pie-chart-v4/).
+
+As I test, It has the same problem as this repository, when the startAngle is
+set to 0, and endAngle is set 360, and only provide two items of data, it
+produces the same problem.
+
