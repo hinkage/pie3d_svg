@@ -1,0 +1,24 @@
+body {
+	display: grid;
+	place-items: start center;
+	padding: 20px;
+	background-color: rgb(0, 0, 100);
+}
+
+.test {
+	position: relative;
+	width: 600px;
+	height: 400px;
+	outline: solid red 1px;
+}
+
+.btn-update {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+	color: white;
+    padding: 10px;
+	background-color: rgb(20, 22, 152);
+	font-size: 20px;
+}
