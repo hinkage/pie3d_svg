@@ -9,6 +9,7 @@
         "type": "git",
         "url": "https://github.com/hinkage/pie3d_svg.git"
     },
+	"keywords": ["pie", "pie3d", "3dpie"],
     "publishConfig": {
         "access": "public"
     },
