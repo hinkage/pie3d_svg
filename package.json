@@ -1,7 +1,7 @@
 {
     "type": "module",
     "name": "@hinkage/pie3d_svg",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "3D pie chart with transition and auto rotating implemented by SVG.",
     "author": "hinkage",
     "license": "MIT",
@@ -9,7 +9,11 @@
         "type": "git",
         "url": "https://github.com/hinkage/pie3d_svg.git"
     },
-	"keywords": ["pie", "pie3d", "3dpie"],
+    "keywords": [
+        "pie",
+        "pie3d",
+        "3dpie"
+    ],
     "publishConfig": {
         "access": "public"
     },
