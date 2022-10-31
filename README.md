@@ -1,6 +1,9 @@
 # pie3d_svg
 3D pie chart with transition and auto rotating implemented by SVG.
 
+## npm package
+npm i @hinkage/pie3d_svg
+
 ## Example
 [![pie3d_svg.png](http://124.221.54.220:23400/file/pie3d_svg.png)](http://124.221.54.220:23400/file/pie3d_svg.mp4)
 
