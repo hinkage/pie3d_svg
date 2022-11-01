@@ -1,8 +1,8 @@
 {
     "type": "module",
     "name": "@hinkage/pie3d_svg",
-    "version": "2.0.4",
-    "description": "3D pie chart with transition and auto rotating implemented by SVG.",
+    "version": "2.0.5",
+    "description": "3D pie chart supports variable heights of diffrent slices and inner radius with transition and auto rotating implemented by SVG.",
     "author": "hinkage",
     "license": "MIT",
     "repository": {
@@ -11,8 +11,11 @@
     },
     "keywords": [
         "pie",
-        "pie3d",
-        "3dpie"
+        "pie chart",
+        "pie 3d",
+        "3d pie",
+        "donut",
+        "variable height"
     ],
     "publishConfig": {
         "access": "public"
@@ -24,7 +27,7 @@
     "main": "src/pie3d.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "rollup": "rollup -c -w"
+        "dev": "rollup -c -w"
     },
     "prettier": {
         "trailingComma": "none",
@@ -41,9 +44,9 @@
         "rollup-plugin-ignore": "^1.0.10",
         "rollup-plugin-livereload": "^2.0.5",
         "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-postcss": "^4.0.2",
         "rollup-plugin-prettier": "^3.0.0",
-        "rollup-plugin-serve": "^2.0.0",
-        "rollup-plugin-styles": "^4.0.0"
+        "rollup-plugin-serve": "^2.0.0"
     },
     "dependencies": {
         "d3": "^7.6.1"

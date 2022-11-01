@@ -1,5 +1,5 @@
 # pie3d_svg
-3D pie chart with transition and auto rotating implemented by SVG.
+3D pie chart supports variable heights of diffrent slices and inner radius with transition and auto rotating implemented by SVG.
 
 ## npm package
 npm i @hinkage/pie3d_svg

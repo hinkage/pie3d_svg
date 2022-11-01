@@ -1,6 +1,6 @@
 import ignore from 'rollup-plugin-ignore';
 import nodeResolve from 'rollup-plugin-node-resolve';
-import styles from 'rollup-plugin-styles';
+import postcss from 'rollup-plugin-postcss';
 import cleanup from 'rollup-plugin-cleanup';
 import serve from 'rollup-plugin-serve';
 // import livereload from 'rollup-plugin-livereload';
@@ -31,8 +31,8 @@ export default [
             nodeResolve({
                 mainFields: ['jsnext:main', 'module']
             }),
-            styles({
-                mode: 'inject'
+            postcss({
+                extract: 'pie3d.css'
             }),
             cleanup({
                 comments: 'all',

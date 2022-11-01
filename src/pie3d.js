@@ -1,5 +1,6 @@
 /*
- * @file 3D pie chart with transition and auto rotating implemented by SVG.
+ * @file 3D pie chart supports variable heights of diffrent slices and inner radius
+ * with transition and auto rotating implemented by SVG.
  * dependencies：d3@7.6.1.min.js d3-shape@3.js
  * @author hinkage
  * @version 2.0.0

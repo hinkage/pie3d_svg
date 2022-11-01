@@ -1,0 +1,14 @@
+.vanilla-lib-pie3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.vanilla-lib-pie3d * {
+  user-select: none;
+}
+.vanilla-lib-pie3d path {
+  stroke-width: 2px;
+  fill: none;
+}
