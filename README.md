@@ -5,9 +5,9 @@
 npm i @hinkage/pie3d_svg
 
 ## Example
-[![pie3d_svg.png](http://124.221.54.220:23400/file/pie3d_svg.png)](http://124.221.54.220:23400/file/pie3d_svg.mp4)
+[![pie3d_svg.png](https://147.78.242.62:81/file/pie3d_svg.png)](https://147.78.242.62:81/file/pie3d_svg.mp4)
 
-[example video](http://124.221.54.220:23400/file/pie3d_svg.mp4)
+[example video](https://147.78.242.62:81/file/pie3d_svg.mp4)
 
 ### example/test.js
 ```
@@ -16,14 +16,14 @@ let inst = Pie3D(el);
 inst.render({
 	data: fakeData(),
 	colorArray: [
-		'rgba(213, 63, 11, 0.9)',
-		'rgba(89, 19, 208, 0.9)',
-		'rgba(56, 140, 227, 0.9)',
-		'rgba(20, 202, 156, 0.9)',
-		'rgba(185, 195, 16, 0.9)',
-		'rgba(210, 138, 26, 0.9)',
-		'rgba(109, 175, 243, 0.9)',
-		'rgba(108, 200, 243, 0.9)'
+		'rgba(213, 63, 11, 1.0)',
+		'rgba(89, 19, 208, 1.0)',
+		'rgba(56, 140, 227, 1.0)',
+		'rgba(20, 202, 156, 1.0)',
+		'rgba(185, 195, 16, 1.0)',
+		'rgba(210, 138, 26, 1.0)',
+		'rgba(109, 175, 243, 1.0)',
+		'rgba(108, 200, 243, 1.0)'
 	],
 	x: 300,
 	y: 250,
