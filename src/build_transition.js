@@ -1,5 +1,3 @@
-import * as d3 from 'd3';
-
 export default function buildTransition(sel, oldData, newData, fnRender, cfg) {
     let trans = sel
         .transition('trans-pie-3d')

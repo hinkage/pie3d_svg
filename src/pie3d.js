@@ -6,7 +6,6 @@
  * @version 2.0.0
  * @see {@link https://github.com/hinkage/pie3d_svg}
  */
-import * as d3 from 'd3';
 import buildTransition from './build_transition.js';
 import { createPieLayout } from './create_pie_layout.js';
 import defaultConfig from './default_config.js';

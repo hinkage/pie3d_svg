@@ -1,60 +1,67 @@
-import ignore from 'rollup-plugin-ignore';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import postcss from 'rollup-plugin-postcss';
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import sucrase from '@rollup/plugin-sucrase';
 import cleanup from 'rollup-plugin-cleanup';
-import serve from 'rollup-plugin-serve';
-// import livereload from 'rollup-plugin-livereload';
-import prettier from 'rollup-plugin-prettier';
+import postcss from 'rollup-plugin-postcss';
+
+import { readFileSync } from 'fs';
+import path from 'path';
+const packageJson = JSON.parse(readFileSync(path.resolve('package.json')));
+const version = packageJson.version;
+const outDir = `dist/@${version}/out`;
 
 export default [
     {
-        external: ['d3'],
         input: 'src/pie3d.js',
+        output: `${outDir}/pie3d.js`,
+        cssExtract: 'pie3d.css',
+        name: 'Pie3D'
+    },
+    {
+        input: 'example/test.js',
+        output: `${outDir}/test/test.js`,
+        cssExtract: 'test.css',
+        name: 'Test'
+    }
+].map((o) => {
+    return {
+        external: ['d3'],
+        input: o.input,
         output: {
-            file: 'dist/pie3d.js',
-            format: 'umd',
-            name: 'Pie3D',
             globals: {
                 d3: 'd3'
             },
+            file: o.output,
+            format: 'iife',
+            name: o.name,
             generatedCode: {
                 arrowFunctions: true,
                 constBindings: true,
                 objectShorthand: true,
                 preset: 'es2015',
-                reservedNamesAsPops: true,
+                reservedNamesAsProps: true,
                 symbols: true
-            }
+            },
+            inlineDynamicImports: true
         },
         plugins: [
-            ignore(['d3']),
             nodeResolve({
-                mainFields: ['jsnext:main', 'module']
+                mainFields: ['module', 'jsnext:main', 'browser'],
+                extensions: ['.mjs', '.js', '.ts', '.json', '.node']
             }),
+            commonjs(),
             postcss({
-                extract: 'pie3d.css'
+                extract: o.cssExtract
+            }),
+            sucrase({
+                exclude: ['node_modules/**'],
+                transforms: ['typescript']
             }),
             cleanup({
                 comments: 'all',
                 lineEndings: 'win',
                 maxEmptyLines: 1
-            }),
-            prettier({
-                trailingComma: 'none',
-                useTabs: false,
-                tabWidth: 4,
-                semi: true,
-                singleQuote: true,
-                printWidth: 80
-            }),
-            serve({
-                contentBase: [''],
-                open: true,
-                openPage: '/example/test.html'
             })
-            // livereload({
-            //     watch: ['dist', 'example']
-            // })
         ]
-    }
-];
+    };
+});

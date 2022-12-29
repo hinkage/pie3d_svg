@@ -1,4 +1,3 @@
-import * as d3 from 'd3';
 import pathEnd from './path/path_end.js';
 import pathInner from './path/path_inner.js';
 import pathOuter from './path/path_outer.js';

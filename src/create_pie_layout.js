@@ -1,4 +1,3 @@
-import * as d3 from 'd3';
 import { deg2rad, twoPI } from './util.js';
 
 export function createPieLayout(cfg, opt, getTotalOffset) {

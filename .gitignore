@@ -1,1 +1,4 @@
 node_modules/
+dist/tsout
+dist/tsdec
+dist/*/out/

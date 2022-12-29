@@ -1,4 +1,3 @@
-import * as d3 from 'd3';
 import renderPart from './render_part';
 import { calcZIndex, normalize } from './util';
 
