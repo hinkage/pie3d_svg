@@ -9,7 +9,8 @@
 import buildTransition from './build_transition.js';
 import { createPieLayout } from './create_pie_layout.js';
 import defaultConfig from './default_config.js';
-import renderAll from './render_all.js';
+import { default as renderAllByParts } from './parts/render_all.js';
+import { default as renderAllByGroup3 } from './group3/render_all.js';
 import { JSONClone, twoPI } from './util.js';
 
 import './pie3d.css';
@@ -30,8 +31,18 @@ export default function Pie3D(el) {
         .append('svg')
         .attr('width', el.scrollWidth)
         .attr('height', el.scrollHeight);
-    let parts = svg.append('g').attr('class', 'parts');
-    let useAttr = 'fill'; // stroke fill
+    // For rendering by 3 groups of inner, outer and top
+    const group3 = svg.append('g').attr('class', 'group3');
+    const groupInnerSlices = group3
+        .append('g')
+        .attr('class', 'group-inner-slice');
+    const groupOuterSlices = group3
+        .append('g')
+        .attr('class', 'group-outer-slice');
+    const groupTopSlices = group3.append('g').attr('class', 'group-top-slice');
+    // For rendering by each part inside the pie chart
+    const parts = svg.append('g').attr('class', 'parts');
+    const useAttr = 'fill'; // stroke fill
     let timer = null;
     let trans = null;
     let totalOffset = 0;
@@ -47,6 +58,7 @@ export default function Pie3D(el) {
         if (timer) {
             timer.stop();
         }
+        group3.attr('transform', 'translate(' + cfg.x + ',' + cfg.y + ')');
         parts.attr('transform', 'translate(' + cfg.x + ',' + cfg.y + ')');
         let layoutPie = createPieLayout(cfg, opt, () => totalOffset);
         let data = JSONClone(cfg.data);
@@ -59,13 +71,17 @@ export default function Pie3D(el) {
     }
 
     function generateOptionFromConfig(cfg) {
-        let opt = {
+        const opt = {
             sum: 0,
             min: Number.MAX_VALUE,
             max: -Number.MAX_VALUE,
-            useAttr
+            useAttr,
+            groupInnerSlices,
+            groupOuterSlices,
+            groupTopSlices,
+            parts
         };
-        if (!cfg.depthRange) {
+        if (!cfg.depthRange || cfg.method === 'group3') {
             cfg.depthRange = [cfg.depth, cfg.depth];
         }
         cfg.data.forEach(function (item) {
@@ -81,20 +97,29 @@ export default function Pie3D(el) {
     }
 
     function renderPie(dataPie) {
+        let renderAll;
+        let sel;
+        if (cfg.method === 'group3') {
+            renderAll = renderAllByGroup3;
+            sel = group3;
+        } else if (cfg.method === 'parts') {
+            renderAll = renderAllByParts;
+            sel = parts;
+        }
         dataPie = JSONClone(dataPie);
         if (!cfg.enableTransition) {
-            renderAll(parts, dataPie, cfg, opt);
+            renderAll(dataPie, cfg, opt);
             return;
         }
         if (trans) {
-            parts.interrupt('trans-pie-3d');
+            sel.interrupt('trans-pie-3d');
         }
         trans = buildTransition(
-            parts,
+            sel,
             oldDataPie,
             dataPie,
             function (data) {
-                renderAll(parts, data, cfg, opt);
+                renderAll(data, cfg, opt);
             },
             cfg
         )
@@ -102,7 +127,8 @@ export default function Pie3D(el) {
             .then(() => {
                 // let gExit = parts.selectAll('.exit');
                 // gExit.remove();
-                renderAll(parts, dataPie, cfg, opt);
+                // The elements are not inside dataPie will get removed in data join
+                renderAll(dataPie, cfg, opt);
             })
             .catch((e) => {
                 console.log(e);

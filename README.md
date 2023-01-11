@@ -43,6 +43,15 @@ inst.render({
 });
 ```
 
+## Two ways
+One is seperate slices to 3 groups of inner, outer and top. This way does
+not need to care the order of elements inside each group, and supports 
+any start angle, but does not support variable height.
+
+Another is treat each part of pie as one group. This needs to care the order
+of eath part inside the pie. But this way can only permit start angle to be set
+to 270 degrees.
+
 ## Config
 Look at src/default_config.js.
 

@@ -5,6 +5,7 @@ function test() {
     let inst = Pie3D(el);
     inst.render({
         data: fakeData(),
+        method: 'group3',
         colorArray: [
             'rgba(213, 63, 11, 1.0)',
             'rgba(89, 19, 208, 1.0)',
@@ -41,7 +42,7 @@ function test() {
 }
 
 function fakeData() {
-    let i = Mock.Random.integer(10, 20);
+    let i = Mock.Random.integer(3, 5);
     let j = 0;
     let data = Mock.mock({
         [`dataList|${i}`]: [

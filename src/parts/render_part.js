@@ -1,8 +1,8 @@
-import pathEnd from './path/path_end.js';
-import pathInner from './path/path_inner.js';
-import pathOuter from './path/path_outer.js';
-import pathStart from './path/path_start.js';
-import pathTop from './path/path_top.js';
+import pathEnd from '../path/path_end.js';
+import pathInner from '../path/path_inner.js';
+import pathOuter from '../path/path_outer.js';
+import pathStart from '../path/path_start.js';
+import pathTop from '../path/path_top.js';
 
 export default function renderPart(d, el, cfg, opt) {
     let arr = [d];

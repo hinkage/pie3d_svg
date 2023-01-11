@@ -14,6 +14,7 @@ export default function defaultConfig() {
                 value: 100
             }
         ],
+        method: 'parts', // 'group3' | 'parts'
         colorArray: [
             'rgb(213, 63, 11)',
             'rgb(89, 19, 208)',
