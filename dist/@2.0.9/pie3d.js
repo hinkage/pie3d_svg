@@ -721,7 +721,12 @@ var Pie3D = (function () {
         }
 
         return {
-            render: render
+            render: render,
+            destroy: function () {
+                if (timer) {
+                    timer.stop();
+                }
+            }
         };
     }
 

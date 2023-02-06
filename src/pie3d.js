@@ -159,6 +159,11 @@ export default function Pie3D(el) {
     }
 
     return {
-        render: render
+        render: render,
+        destroy: function () {
+            if (timer) {
+                timer.stop();
+            }
+        }
     };
 }
