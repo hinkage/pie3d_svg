@@ -5,9 +5,9 @@
 npm i @hinkage/pie3d_svg
 
 ## Example
-[![pie3d_svg.png](https://mnkjg.gq:81/file/pie3d_svg.png?)](https://mnkjg.gq:81/file/pie3d_svg.mp4)
+[![pie3d_svg.png](https://mnkjg.gq/file/pie3d_svg.png?)](https://mnkjg.gq/file/pie3d_svg.mp4)
 
-[example video](https://mnkjg.gq:81/file/pie3d_svg.mp4)
+[example video](https://mnkjg.gq/file/pie3d_svg.mp4)
 
 ### example/test.js
 ```
